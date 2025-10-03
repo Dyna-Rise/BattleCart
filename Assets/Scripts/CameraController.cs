@@ -30,8 +30,8 @@ public class CameraController : MonoBehaviour
     {
         //プレイヤーが見つからない場合は何もしない
         if (player == null) return;
-            //線形補間を使って、カメラを目的の場所に動かす
-            //Lerpメソッド(今の位置、ゴールとすべき位置、割合）
-            transform.position = Vector3.Lerp(transform.position, player.transform.position - diff, followSpeed * Time.deltaTime);
+        //線形補間を使って、カメラを目的の場所に動かす
+        //Lerpメソッド(今の位置、ゴールとすべき位置、割合）
+        transform.position = Vector3.Lerp(transform.position, player.transform.position - diff, followSpeed * Time.deltaTime);
     }
 }
