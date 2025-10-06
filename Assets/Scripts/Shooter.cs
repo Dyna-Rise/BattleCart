@@ -11,8 +11,8 @@ public class Shooter : MonoBehaviour
 
     bool possibleShoot; //ショット可能フラグ
 
-    public int shotPower = 10;
-    public int recoverySeconds = 3;
+    public int shotPower = 10; //ショットの残数
+    public int recoverySeconds = 3; //一発一発の回復時間
 
     Camera cam; //カメラ情報の取得
 
@@ -24,7 +24,7 @@ public class Shooter : MonoBehaviour
         //プレイヤーのTransform情報の取得
         player = GameObject.FindGameObjectWithTag("Player").transform;
         //プレイヤーについているGateオブジェクト情報の取得
-        gate = player.transform.Find("Gate").gameObject;
+        gate = player.Find("Gate").gameObject;
 
         //カメラ情報の取得（MainCameraタグがついているカメラ情報は簡単に参照可）
         cam = Camera.main;
@@ -61,7 +61,7 @@ public class Shooter : MonoBehaviour
         //※カメラの角度を考慮した方向を生成
         Vector3 v = new Vector3(
                     cam.transform.forward.x * shootSpeed,
-                    cam.transform.forward.y + upSpeed,
+                    cam.transform.forward.y * upSpeed,
                     cam.transform.forward.z * shootSpeed
                     );
 
