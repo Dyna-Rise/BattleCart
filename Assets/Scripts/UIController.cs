@@ -38,7 +38,7 @@ public class UIController : MonoBehaviour
     {
         if (player == null) return;
 
-        //最高記録の保存
+        //現記録の保存
         odometerText.text = player.gameObject.transform.position.z.ToString("F1");
 
         //弾の残数表示

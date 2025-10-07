@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 5260003366992574834}
   - component: {fileID: 1109463180802111126}
   - component: {fileID: 5589475680363222701}
+  - component: {fileID: 8470204862936929832}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -253,6 +254,27 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8470204862936929832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173339198683585343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dd348d65bcdf14b831762289aa150c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  odometerText: {fileID: 7167559473978419855}
+  bulletText: {fileID: 3842512717121501241}
+  maxScoreText: {fileID: 5674192520885504011}
+  lifeSlider: {fileID: 3647169952935748307}
+  odometerPanel: {fileID: 8875792027332021543}
+  bulletPanel: {fileID: 2196405473911687054}
+  playerLifePanel: {fileID: 3696771555310853337}
+  gameOverPanel: {fileID: 6728353594960631609}
+  maxScorePanel: {fileID: 6398898635113045486}
 --- !u!1 &1278045603259372525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,6 +1271,7 @@ GameObject:
   - component: {fileID: 369651631979952089}
   - component: {fileID: 1163538927598963142}
   - component: {fileID: 7093126076671363902}
+  - component: {fileID: 4907950667166194364}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -1357,7 +1380,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1163538927598963142}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4907950667166194364}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4907950667166194364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715986170296903649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866d16d10a805e549bd6ff3d074aef13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: BaseStage
 --- !u!1 &5680485480267165015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1629,7 @@ GameObject:
   - component: {fileID: 4417624761667200883}
   - component: {fileID: 773250339010087158}
   - component: {fileID: 7660832753327576010}
+  - component: {fileID: 9093392876274719982}
   m_Layer: 5
   m_Name: TitleButton
   m_TagString: Untagged
@@ -1689,7 +1738,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 773250339010087158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9093392876274719982}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9093392876274719982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5900549008409182045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866d16d10a805e549bd6ff3d074aef13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Title
 --- !u!1 &6398898635113045486
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,9 +2350,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1640912967745129006}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 3
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
