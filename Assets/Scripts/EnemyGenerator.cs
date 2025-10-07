@@ -7,7 +7,7 @@ public class EnemyGenerator : MonoBehaviour
     public GameObject[] dangerPrefab; //生成される危険車のプレハブ
 
     public float minIntervalTime = 0.1f; //インターバルの最小
-    public float maxIntervalTime = 3.0f; //インターバルの最大
+    public float maxIntervalTime = 1.0f; //インターバルの最大
 
     float timer; //時間経過を観測
     float posX; //危険車の出現X座標
@@ -15,7 +15,7 @@ public class EnemyGenerator : MonoBehaviour
     GameObject cam; //カメラオブジェクト
 
     //初期位置
-    public Vector3 defaultPos = new Vector3(0, 10, -60);
+    public Vector3 defaultPos = new Vector3(0, 3, 120);
 
     Vector3 diff;
     public float followSpeed = 8; //ジェネレーターの補間スピード
@@ -43,7 +43,7 @@ public class EnemyGenerator : MonoBehaviour
         { //0になったら
             DangerCreated(); //危険車の生成
             maxIntervalTime -= 0.1f; //生成の度に最大インターバルの間隔を短く
-            maxIntervalTime = Mathf.Clamp(maxIntervalTime, 0.1f, 3.0f); //最小でも0.1f
+            maxIntervalTime = Mathf.Clamp(maxIntervalTime, 0.1f, .0f); //最小でも0.1f
             timer = Random.Range(minIntervalTime, maxIntervalTime + 1);
         }
     }
@@ -70,6 +70,6 @@ public class EnemyGenerator : MonoBehaviour
         if (isSky == 0) v.y = 1;
 
         //プレハブ化した危険車を、ジェネレーターのその時のZの位置に、危険車の向きそのままに生成する
-        GameObject obj = Instantiate(dangerPrefab[isSky], v, dangerPrefab[isSky].transform.rotation);
+        Instantiate(dangerPrefab[isSky], v, dangerPrefab[isSky].transform.rotation);
     }
 }

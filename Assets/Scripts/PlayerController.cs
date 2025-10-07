@@ -75,6 +75,8 @@ public class PlayerController : MonoBehaviour
         //移動後接地してたらY方向の速度はリセットする
         if (controller.isGrounded) moveDirection.y = 0;
 
+        //1秒に1ずつトップスピードの上限値が増えていく
+        speedZ += Time.deltaTime;
     }
 
     //左のレーンに移動を開始
@@ -129,8 +131,15 @@ public class PlayerController : MonoBehaviour
             //体力をマイナス
             life--;
 
+            //スピードをリセット
+            speedZ = 10;
+
             if (life <= 0)
             {
+                //ゲームオーバーになった時にその時のポジションZの座標を
+                //Scoreキーワードでパソコンに保存
+                PlayerPrefs.SetFloat("Score",transform.position.z);
+
                 GameManager.gameState = GameState.gameover;
                 Instantiate(boms, transform.position, Quaternion.identity); //爆発エフェクトの発生
                 Destroy(gameObject, 0.5f); //少し時間差で自分を消滅
